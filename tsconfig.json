@@ -13,7 +13,8 @@
     "incremental": true
   },
   "include": [
-    "src"
+    "src",
+    "ormconfig.js"
   ],
   "exclude": [
     "node_modules",
