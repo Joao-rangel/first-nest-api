@@ -17,20 +17,21 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Post()
-  create(@Body() { name, email }: CreateUserDTO) {
+  async create(@Body() { name, email }: CreateUserDTO) {
     const user = this.userService.create({ name, email });
-
     return user;
   }
 
   @Get()
-  index() {
-    return this.userService.index();
+  async index() {
+    const users = this.userService.index();
+    return users;
   }
 
   @Get(':id')
   async show(@Param('id') id: number) {
-    return this.userService.show(id);
+    const user = this.userService.show(id);
+    return user;
   }
 
   @Put(':id')
@@ -41,7 +42,7 @@ export class UserController {
 
   @Delete(':id')
   @HttpCode(204)
-  remove(@Param('id') id: string) {
+  async remove(@Param('id') id: number) {
     this.userService.delete(id);
   }
 }
