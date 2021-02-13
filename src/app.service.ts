@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getHello() {
+    return {
+      message: 'Hello! Check the api docs.',
+      link: 'https://joao-rangel.github.io/ts-nest-api',
+    };
   }
 }

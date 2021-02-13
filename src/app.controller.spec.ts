@@ -16,7 +16,10 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(appController.getHello()).toHaveProperty('message');
+      expect(appController.getHello().link).toBe(
+        'https://joao-rangel.github.io/ts-nest-api',
+      );
     });
   });
 });
