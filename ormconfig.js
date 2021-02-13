@@ -2,7 +2,7 @@ module.exports = [
   {
     name: 'default',
     type: 'mysql',
-    url: process.env.DATABASE_URL,
+    url: process.env.DATABASE_URL || process.env.CLEARDB_DATABASE_URL,
     entities: ['./dist/**/*.entity{.ts,.js}'],
     migrations: ['./dist/migrations/*{.ts,.js}'],
     cli: {
