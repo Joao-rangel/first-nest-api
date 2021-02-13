@@ -1,10 +1,14 @@
 {
-  "name": "first-nest-api",
+  "name": "ts-nest-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": "14.15.x",
+    "yarn": "1.22.x"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
