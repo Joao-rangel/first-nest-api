@@ -12,8 +12,8 @@ export class UserService {
   ) {}
 
   async create({ name, email }: CreateUserDTO): Promise<User> {
-    const createUser = this.userRepository.create({ name, email });
-    const user = await this.userRepository.save(createUser);
+    const createdUser = this.userRepository.create({ name, email });
+    const user = await this.userRepository.save(createdUser);
     return user;
   }
 
@@ -31,16 +31,18 @@ export class UserService {
   }
 
   async update(id: number, updateUser: UpdateUserDTO): Promise<User> {
-    const user = await this.userRepository.findOne(id);
-    if (!user) {
+    const userToUpdate = await this.userRepository.findOne(id);
+    if (!userToUpdate) {
       throw new NotFoundException('User not found');
     }
-    Object.assign(user, { ...updateUser });
-    await this.userRepository.update(id, user);
+    const user = await this.userRepository.save({
+      ...userToUpdate,
+      ...updateUser,
+    });
     return user;
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(id: number): Promise<void> {
     const user = await this.userRepository.findOne(id);
     if (!user) {
       throw new NotFoundException('User not found');
