@@ -31,7 +31,7 @@ API para gerenciamento de usuários implementada em Node.js com Typescript usand
 
 1.  Clone o projeto e acesse a pasta:
 ```
-    $ git clone https://github.com/joao-rangel/ts-nest-api.git && cd ts-gobarber-backend
+    $ git clone https://github.com/joao-rangel/ts-nest-api.git && cd ts-nest-api
 ```
 2.  Rode o yarn para instalar as bibliotecas:
 ```
@@ -50,15 +50,19 @@ API para gerenciamento de usuários implementada em Node.js com Typescript usand
 ```
      $ docker start mysql
 ```
-5.  Execute as migrations do banco de dados:
+5.  Execute a compilação da aplicação:
+```
+    $ yarn build
+```
+6.  Execute as migrations do banco de dados:
 ```
     $ yarn typeorm migration:run
 ```
-6.  Inicie o projeto:
+7.  Inicie o projeto:
 ```
     $ yarn start:dev
 ```
-7. (Opcional) Rode os testes:
+8. (Opcional) Rode os testes:
 ```
     $ yarn test:cov
 ```
