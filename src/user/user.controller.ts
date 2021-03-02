@@ -8,8 +8,10 @@ import {
   Delete,
   HttpCode,
 } from '@nestjs/common';
+import { ApiOkResponse } from '@nestjs/swagger';
 
 import { CreateUserDTO, UpdateUserDTO } from './dto/user.dto';
+import { User } from './user.entity';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -28,6 +30,7 @@ export class UserController {
     return users;
   }
 
+  @ApiOkResponse({ type: User })
   @Get(':id')
   async show(@Param('id') id: number) {
     const user = this.userService.show(id);

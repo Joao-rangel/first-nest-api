@@ -14,7 +14,8 @@
   },
   "include": [
     "src",
-    "ormconfig.js"
+    "ormconfig.js",
+    "test"
   ],
   "exclude": [
     "node_modules",

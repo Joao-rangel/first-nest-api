@@ -17,8 +17,9 @@ API para gerenciamento de usuários implementada em Node.js com Typescript usand
 * O banco de dados utilizado foi o MySQL uma vez que deseja-se utilizar a opção *unsigned* para as chaves primárias;
 * Utilizou-se TypeORM para a comunicação com o banco de dados, por sua compatibilidade com Typescript e também com NestJS;
 * A tipagem de objetos (como DTO), foi implementada por meio de classes como recomentado pela documentação do NestJS.
-* A documentação foi gerada através do Insomnia, client usado para testar a api durante do desenvolvimento.
 * Tomei a liberdade de alterar  o tipo da coluna *created* (na tabela *users*) para *TIMESTAMP* para fazer deploy no Heroku com o ClearDB.
+* A documentação foi gerada através do Insomnia, client usado para testar a api durante do desenvolvimento.
+* Documentação implementada também com o swagger (acessar localmente: localhost:3000/api)
 
 ### Dependências do sistema
 
@@ -44,13 +45,13 @@ API para gerenciamento de usuários implementada em Node.js com Typescript usand
 4.  Inicie os bancos de dados com o docker (alterando os valores conforme .env):
   * Criando e iniciando o container
 ```
-     $ docker run --name mysql -d -p 3306:3306 -e MYSQL_DATABASE=api -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_USER=nest -e MYSQL_PASSWORD=docker mysql
+     $ docker run --name mysql-firstNestApi -d -p 3306:3306 -e MYSQL_DATABASE=api -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_USER=nest -e MYSQL_PASSWORD=docker mysql
 ```
   * Caso já tenha o container criado
 ```
      $ docker start mysql
 ```
-5.  Execute a compilação da aplicação:
+5.  Faça o build da aplicação:
 ```
     $ yarn build
 ```
